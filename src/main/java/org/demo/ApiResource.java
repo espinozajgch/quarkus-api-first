@@ -1,8 +1,8 @@
 package org.demo;
 
+import org.demo.swagger.api.UserApi;
+import org.demo.swagger.dto.User;
 import org.jboss.logging.Logger;
-import org.openapi.spec.api.UserApi;
-import org.openapi.spec.dto.User;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.validation.Valid;
@@ -12,9 +12,10 @@ public class ApiResource implements UserApi {
 
     final static Logger log = Logger.getLogger(ApiResource.class);
 
+
     @Override
-    public User createUser(@Valid User user) {
-        return null;
+    public void createUser(@Valid User body) {
+
     }
 
     @Override
@@ -29,7 +30,8 @@ public class ApiResource implements UserApi {
     }
 
     @Override
-    public void updateUser(String username, @Valid User user) {
+    public void updateUser(@Valid User body, String username) {
 
     }
+
 }

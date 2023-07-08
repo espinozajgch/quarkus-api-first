@@ -68,7 +68,7 @@
       <scope>test</scope>
     </dependency>
 
-    <!--dependency>
+    <dependency>
       <groupId>jakarta.validation</groupId>
       <artifactId>jakarta.validation-api</artifactId>
     </dependency>
@@ -76,7 +76,7 @@
       <groupId>io.swagger.core.v3</groupId>
       <artifactId>swagger-annotations</artifactId>
       <version>${swagger.annotations.version}</version>
-    </dependency-->
+    </dependency>
 
     <dependency>
       <groupId>io.swagger</groupId>
@@ -90,7 +90,7 @@
     </dependency>
 
 
-    <dependency>
+    <!--dependency>
       <groupId>org.openapitools</groupId>
       <artifactId>jackson-databind-nullable</artifactId>
       <version>${jackson-nullable.version}</version>
@@ -99,7 +99,7 @@
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-jsr310</artifactId>
       <version>2.15.2</version>
-    </dependency>
+    </dependency-->
 
   </dependencies>
 
@@ -107,7 +107,7 @@
     <plugins>
 
       <!-- Swagger Codegen -->
-      <!--plugin>
+      <plugin>
         <groupId>io.swagger.codegen.v3</groupId>
         <artifactId>swagger-codegen-maven-plugin</artifactId>
         <version>3.0.46</version>
@@ -120,10 +120,13 @@
               <inputSpec>${swagger.file}</inputSpec>
               <language>jaxrs-spec</language>
               <generateSupportingFiles>false</generateSupportingFiles>
+              <generateApiDocumentation>false</generateApiDocumentation>
+
               <generateModelDocumentation>false</generateModelDocumentation>
               <modelPackage>${project.groupId}.swagger.dto</modelPackage>
               <apiPackage>${project.groupId}.swagger.api</apiPackage>
               <configOptions>
+                <useSwaggerAnnotations>false</useSwaggerAnnotations>
                 <useTags>true</useTags>
                 <useSwaggerFeature>true</useSwaggerFeature>
                 <dateLibrary>java17</dateLibrary>
@@ -135,11 +138,11 @@
             </configuration>
           </execution>
         </executions>
-      </plugin-->
+      </plugin>
       <!-- Swagger Codegen -->
 
       <!-- Open Api Generator -->
-      <plugin>
+      <!--plugin>
         <groupId>org.openapitools</groupId>
         <artifactId>openapi-generator-maven-plugin</artifactId>
         <version>${openapi-generator.version}</version>
@@ -186,7 +189,7 @@
             </configuration>
           </execution>
         </executions>
-      </plugin>
+      </plugin-->
       <!-- Open Api Generator -->
 
 
